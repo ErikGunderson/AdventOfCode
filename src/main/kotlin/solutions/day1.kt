@@ -29,6 +29,8 @@ fun day1Solution2() {
 
     if (!inputFile.exists()) { print("Input file does not exist!"); return }
 
+    //WIP
+
 //    val partitionedInputs = inputFile.readLines().map { it.trim() }.map { it.toInt() }.partition { it >= 1010 }
 //    val largeInputs = partitionedInputs.first
 //    val smallInputs = partitionedInputs.second.sorted()
