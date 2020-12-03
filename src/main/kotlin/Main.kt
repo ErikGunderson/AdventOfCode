@@ -1,3 +1,3 @@
 fun main() {
-    day2Solution2()
+    day3Solution2()
 }
