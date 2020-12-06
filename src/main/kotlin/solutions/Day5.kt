@@ -25,7 +25,7 @@ class Day5 : FileReader() {
                 when (it) {
                     'F' -> back = floor((front + back) / 2)
                     'B' -> front = ceil((front + back) / 2)
-                    'R' -> left = kotlin.math.ceil((left + right) / 2)
+                    'R' -> left = ceil((left + right) / 2)
                     'L' -> right = floor((left + right) / 2)
                 }
             }
