@@ -1,7 +1,6 @@
 package solutions
 
 import FileReader
-import java.io.File
 
 class Day4 : FileReader() {
     fun solution1() {
