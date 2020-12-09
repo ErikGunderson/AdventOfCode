@@ -72,7 +72,6 @@ class Day8 : FileReader() {
                 instructions[currentIndex].let {
                     if (it.executionCount >= 1) {
                         shouldExecuteLoop = false
-//                        print ("executed ${it.instruction} at line $currentIndex twice")
                         return@let
                     }
 
