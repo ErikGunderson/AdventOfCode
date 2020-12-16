@@ -33,55 +33,55 @@ class Day13 : FileReader() {
         }
     }
 
+    /**
+     * https://www.geeksforgeeks.org/chinese-remainder-theorem-set-1-introduction/
+     */
     fun solution2() {
         val buses = inputFile.readLines().let {
             it[1].split(",").mapIndexed { index, busId ->
                 busId to index
             }
-        }.filter { it.first != "x" }.map { Bus(it.first.toInt(), it.second) }.toMutableList()
+        }.filter { it.first != "x" }.map { Bus(it.first.toInt(), it.first.toInt() - it.second) }.toMutableList()
 
-        val referenceBus = buses.find { it.requiredOffset == 0 }!!
-        val referencePairBus = buses.find { it.requiredOffset == referenceBus.busId }!!
-
-        buses.removeAll(listOf(referenceBus, referencePairBus))
-
-        val lowestCommonMultipleRefAndPair = referenceBus.busId.findLowestCommonMultiple(referencePairBus.busId)
-
-        var refNumber = findNextRefNumber(lowestCommonMultipleRefAndPair, referenceBus.busId)
-
-        currentLcmMultiplier = ceil(100000000000000.toDouble()/ lowestCommonMultipleRefAndPair).toLong()
-
-        var busIndex = 0
-        while (busIndex <= buses.lastIndex) {
-            val currentBus = buses[busIndex]
-            busIndex += 1
-
-            var currentMultiplier = ceil(100000000000000.toDouble()/ currentBus.busId).toLong()
-            var currentValue = (currentBus.busId * currentMultiplier) - currentBus.requiredOffset
-
-            while (refNumber != currentValue) {
-                if (refNumber < currentValue) {
-                    currentLcmMultiplier += 1
-                    refNumber = findNextRefNumber(lowestCommonMultipleRefAndPair, referenceBus.busId)
-                    busIndex = 0
-                } else {
-                    currentMultiplier += 1
-                    currentValue = (currentBus.busId * currentMultiplier) - currentBus.requiredOffset
-                }
-            }
+        var formulaSum = 0L
+        val busIdProduct = buses.busIdProduct()
+        buses.forEach {
+            val pp = busIdProduct / it.busId
+            formulaSum += (it.requiredOffset * pp * modInverse(pp, it.busId)!!)
         }
 
-        print("earliest valid timestamp: $refNumber")
+        val crtValue = formulaSum % busIdProduct
+
+        print("earliest valid timestamp: $crtValue")
         print("\nDONE :D")
     }
 
-    private fun findNextRefNumber(lcm: Int, offset: Int) : Long {
-        var tmp = ((lcm * currentLcmMultiplier) - offset)
-        while (tmp % offset != 0L) {
-            currentLcmMultiplier += 1
-            tmp = ((lcm * currentLcmMultiplier) - offset)
+    private fun findGcdExtended(a: Long, b:Long, params: GcdParams) : Long {
+        if (a == 0L) {
+            params.x = 0
+            params.y = 1
+            return b
         }
-        return tmp
+
+        val recursiveParams = GcdParams(0, 0)
+        val gcd = findGcdExtended(b % a, a, recursiveParams)
+
+        params.x = recursiveParams.y - (b / a) * recursiveParams.x
+        params.y = recursiveParams.x
+
+        return gcd
+    }
+
+    private fun modInverse(a: Long, m: Int) : Long? {
+        val params = GcdParams(0, 0)
+        val gcd = findGcdExtended(a, m.toLong(), params)
+
+        return if (gcd != 1L) {
+            print("\nError - Inverse does not exist!")
+            null
+        } else {
+            return (params.x % m + m) % m
+        }
     }
 }
 
@@ -90,12 +90,13 @@ data class Bus(
     val requiredOffset: Int
 )
 
-fun Int.findLowestCommonMultiple(other: Int) : Int {
-    var currentMultiplier = 1
+data class GcdParams(
+    var x: Long,
+    var y: Long
+)
 
-    while ((other * currentMultiplier) % this != 0) {
-        currentMultiplier += 1
-    }
-
-    return other * currentMultiplier
+fun List<Bus>.busIdProduct() : Long {
+    var product = 1L
+    this.forEach { product *= it.busId }
+    return product
 }
