@@ -2,8 +2,8 @@ import solutions.*
 
 fun main() {
     try {
-        Day13().solution2()
+        Day14().solution2()
     } catch (exception: Exception) {
-        print("\n ${exception.stackTrace.contentToString()} \n")
+        print("\n$exception ${exception.stackTrace.map { "\nat -> $it" }.joinToString("")} \n")
     }
 }
