@@ -35,7 +35,7 @@ class Day9: FileReader() {
                 }
             }
 
-            inputSet.forEachIndexed { index, input ->
+            inputSet.forEachIndexed { index, _ ->
                 if (checkForContiguousSum(inputSet.subList(index, invalidInputIndex), invalidInput)) return
             }
         }
