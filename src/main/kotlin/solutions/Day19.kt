@@ -3,6 +3,12 @@ package solutions
 import FileReader
 
 class Day19 : FileReader() {
+    /**
+     * NOTE: use these rules for part 1:
+     *
+     * 8: 42
+     * 11: 42 31
+     */
     fun solution1() {
         var parsingStrategy = 1
         val rules = mutableMapOf<Int, String>()
@@ -34,6 +40,12 @@ class Day19 : FileReader() {
         print("\nDONE :D")
     }
 
+    /**
+     * NOTE: use these rules for part 2:
+     *
+     * 8: 42 | 42 8
+     * 11: 42 31 | 42 11 31
+     */
     fun solution2() {
         var parsingStrategy = 1
         val rules = mutableMapOf<Int, String>()
