@@ -1,10 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
-import java.lang.Math.ceil
-import kotlin.math.round
+import AoC2020Problem
 
-class Day13 : FileReader() {
+class Day13 : AoC2020Problem() {
 
     var currentLcmMultiplier = 1L
 

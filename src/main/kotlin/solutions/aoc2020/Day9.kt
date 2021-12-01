@@ -1,8 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
+import AoC2020Problem
 
-class Day9: FileReader() {
+class Day9: AoC2020Problem() {
     fun solution1() {
         inputFile.readLines().map { it.toLong() }.let { inputSet ->
             inputSet.forEachIndexed { index, input ->

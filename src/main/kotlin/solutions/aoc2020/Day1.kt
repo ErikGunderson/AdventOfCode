@@ -1,8 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
+import AoC2020Problem
 
-class Day1: FileReader() {
+class Day1: AoC2020Problem() {
     fun solution1() {
         val partitionedInputs = inputFile.readLines().map { it.trim() }.map { it.toInt() }.partition { it >= 1010 }
         val largeInputs = partitionedInputs.first

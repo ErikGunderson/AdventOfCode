@@ -1,9 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
-import kotlin.math.max
+import AoC2020Problem
 
-class Day23 : FileReader() {
+class Day23 : AoC2020Problem() {
     fun solution1() {
         val cups = mutableListOf<Cup>()
         var currentCupIndex = 0

@@ -1,8 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
+import AoC2020Problem
 
-class Day19 : FileReader() {
+class Day19 : AoC2020Problem() {
     /**
      * NOTE: use these rules for part 1:
      *

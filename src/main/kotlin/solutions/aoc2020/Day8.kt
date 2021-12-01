@@ -1,8 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
+import AoC2020Problem
 
-class Day8 : FileReader() {
+class Day8 : AoC2020Problem() {
     fun solution1() {
         var accumulator = 0
         val instructions = mutableListOf<Instruction>()

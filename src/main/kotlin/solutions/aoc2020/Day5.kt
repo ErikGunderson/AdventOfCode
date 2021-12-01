@@ -1,11 +1,10 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
-import java.io.File
+import AoC2020Problem
 import kotlin.math.ceil
 import kotlin.math.floor
 
-class Day5 : FileReader() {
+class Day5 : AoC2020Problem() {
     fun solution1() {
         //when taking the upper half (back) take the ceiling of the computed index
         //when taking the lower half (front) take the floor of the computer index

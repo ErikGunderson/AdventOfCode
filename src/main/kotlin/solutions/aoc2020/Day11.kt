@@ -1,9 +1,10 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
-import solutions.LayoutObject.*
+import AoC2020Problem
+import solutions.aoc2020.LayoutObject.Floor
+import solutions.aoc2020.LayoutObject.Seat
 
-class Day11 : FileReader() {
+class Day11 : AoC2020Problem() {
     fun solution1() {
         val seatLayout = mutableListOf<List<LayoutObject>>()
         inputFile.readLines().forEach {

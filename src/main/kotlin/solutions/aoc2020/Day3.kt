@@ -1,8 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
+import AoC2020Problem
 
-class Day3 : FileReader() {
+class Day3 : AoC2020Problem() {
     fun solution1() {
         val treeChar = '#'
 

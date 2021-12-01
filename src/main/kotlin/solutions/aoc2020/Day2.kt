@@ -1,9 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
-import java.io.File
+import AoC2020Problem
 
-class Day2 : FileReader() {
+class Day2 : AoC2020Problem() {
     fun solution1() {
         var validPasswordCount = 0
 

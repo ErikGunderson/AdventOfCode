@@ -1,8 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
+import AoC2020Problem
 
-class Day21 : FileReader() {
+class Day21 : AoC2020Problem() {
     fun solution1() {
         val foods = mutableListOf<Pair</* Ingredients */List<String>, /* Allergens */List<String>>>()
 

@@ -1,10 +1,10 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
-import solutions.CardinalDirection.*
+import AoC2020Problem
+import solutions.aoc2020.CardinalDirection.*
 import kotlin.math.abs
 
-class Day12 : FileReader() {
+class Day12 : AoC2020Problem() {
     fun solution1() {
         val cardinalMovementMap = mutableMapOf(
             North to 0,

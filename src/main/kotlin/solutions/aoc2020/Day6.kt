@@ -1,11 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
-import java.io.File
-import kotlin.math.ceil
-import kotlin.math.floor
+import AoC2020Problem
 
-class Day6 : FileReader() {
+class Day6 : AoC2020Problem() {
     fun solution1() {
         val currentGroupYesQuestions = mutableListOf<Char>()
         val yesCounts = mutableListOf<Int>()

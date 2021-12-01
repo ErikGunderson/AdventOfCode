@@ -1,8 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
+import AoC2020Problem
 
-class Day4 : FileReader() {
+class Day4 : AoC2020Problem() {
     fun solution1() {
         val requiredDataKeys = listOf("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid")
         var validPassportCount = 0

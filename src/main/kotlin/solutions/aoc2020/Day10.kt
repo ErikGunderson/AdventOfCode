@@ -1,8 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
+import AoC2020Problem
 
-class Day10 : FileReader() {
+class Day10 : AoC2020Problem() {
     fun solution1() {
         var oneJoltDiffs = 0
         var threeJoltDiffs = 1

@@ -1,9 +1,9 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
-import solutions.ContainsGoldBag.*
+import AoC2020Problem
+import solutions.aoc2020.ContainsGoldBag.*
 
-class Day7: FileReader() {
+class Day7: AoC2020Problem() {
     fun solution1() {
         val bagMap = mutableMapOf<String, BagsEntry>()
         var goldContainerBagCount = 0

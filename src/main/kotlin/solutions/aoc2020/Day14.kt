@@ -1,9 +1,9 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
+import AoC2020Problem
 import java.util.*
 
-class Day14 : FileReader() {
+class Day14 : AoC2020Problem() {
     fun solution1() {
         val registerMap = mutableMapOf<Int, Long>()
         var currentBitmask = listOf<BitmaskValue>()

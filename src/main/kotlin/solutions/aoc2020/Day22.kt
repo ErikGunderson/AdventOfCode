@@ -1,9 +1,9 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
+import AoC2020Problem
 import java.util.*
 
-class Day22 : FileReader() {
+class Day22 : AoC2020Problem() {
     fun solution1() {
         val playerOneDeck = LinkedList<Int>()
         val playerTwoDeck = LinkedList<Int>()

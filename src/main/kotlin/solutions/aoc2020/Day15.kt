@@ -1,8 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
+import AoC2020Problem
 
-class Day15 : FileReader() {
+class Day15 : AoC2020Problem() {
     fun solution1() {
         val startingNumbers = inputFile.readText().split(",").map { it.toInt() }
         val numberMap = mutableMapOf<Int, MutableList<Int>>()

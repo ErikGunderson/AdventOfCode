@@ -1,8 +1,8 @@
-import solutions.*
+import solutions.aoc2021.Day1
 
 fun main() {
     try {
-        Day23().solution2()
+        Day1().solution2()
     } catch (exception: Exception) {
         print("\n$exception ${exception.stackTrace.map { "\nat -> $it" }.joinToString("")} \n")
     }

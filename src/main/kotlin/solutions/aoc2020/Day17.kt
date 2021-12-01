@@ -1,8 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
+import AoC2020Problem
 
-class Day17 : FileReader() {
+class Day17 : AoC2020Problem() {
     fun solution1() {
         //NOTE: the top-left most point in the starting input is coords 0, 0, 0
         val pocketDimension = mutableListOf<ConwayCube>()

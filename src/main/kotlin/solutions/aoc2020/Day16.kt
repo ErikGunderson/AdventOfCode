@@ -1,8 +1,8 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
+import AoC2020Problem
 
-class Day16 : FileReader() {
+class Day16 : AoC2020Problem() {
     fun solution1() {
         var parsingStrategy = 1
 

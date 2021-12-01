@@ -1,9 +1,9 @@
-package solutions
+package solutions.aoc2020
 
-import FileReader
+import AoC2020Problem
 import java.util.*
 
-class Day18 : FileReader() {
+class Day18 : AoC2020Problem() {
     fun solution1() {
         val equationOutputs = mutableListOf<Long>()
         val operators = listOf(
