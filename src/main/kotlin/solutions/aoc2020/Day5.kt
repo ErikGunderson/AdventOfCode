@@ -5,7 +5,7 @@ import kotlin.math.ceil
 import kotlin.math.floor
 
 class Day5 : AoC2020Problem() {
-    override fun solution1() {
+    override fun solution1(input: List<String>) {
         //when taking the upper half (back) take the ceiling of the computed index
         //when taking the lower half (front) take the floor of the computer index
 
@@ -36,7 +36,7 @@ class Day5 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    override fun solution2() {
+    override fun solution2(input: List<String>) {
         //when taking the upper half (back) take the ceiling of the computed index
         //when taking the lower half (front) take the floor of the computer index
 

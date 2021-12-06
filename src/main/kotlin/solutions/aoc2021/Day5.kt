@@ -3,39 +3,37 @@ package solutions.aoc2021
 import AoC2021Problem
 
 class Day5 : AoC2021Problem() {
-    override fun solution1() {
+    override fun solution1(input: List<String>) {
         val seafloorCoordinates = mutableMapOf<Int/*xPos*/, MutableList<SeafloorCoordinate>>()
 
-        inputFile.readLines().map { it.trim() }
-            .forEach { inputLine ->
-                val line = inputLine.split(" -> ")
-                    .map { point -> point.split(",").let { Point(it[0].toInt(), it[1].toInt()) } }
-                    .let { points -> getRange(points[0], points[1]) }
+        input.forEach { inputLine ->
+            val line = inputLine.split(" -> ")
+                .map { point -> point.split(",").let { Point(it[0].toInt(), it[1].toInt()) } }
+                .let { points -> getRange(points[0], points[1]) }
 
-                if (line.isDiagonal()) return@forEach //For this one, do not consider diagonals
+            if (line.isDiagonal()) return@forEach //For this one, do not consider diagonals
 
-                line.forEach { seafloorCoordinates.getOrCreateCoordinate(it.xPos, it.yPos).ventCount++ }
-            }
+            line.forEach { seafloorCoordinates.getOrCreateCoordinate(it.xPos, it.yPos).ventCount++ }
+        }
 
         print("Points with 2 or more overlaps ${seafloorCoordinates.values.flatten().count { it.ventCount >= 2 }}")
     }
 
-    override fun solution2() {
+    override fun solution2(input: List<String>) {
         val seafloorCoordinates = mutableMapOf<Int/*xPos*/, MutableList<SeafloorCoordinate>>()
 
-        inputFile.readLines().map { it.trim() }
-            .forEach { inputLine ->
-                val line = inputLine.split(" -> ")
-                    .map { point -> point.split(",").let { Point(it[0].toInt(), it[1].toInt()) } }
-                    .let { points -> getRange(points[0], points[1]) }
+        input.forEach { inputLine ->
+            val line = inputLine.split(" -> ")
+                .map { point -> point.split(",").let { Point(it[0].toInt(), it[1].toInt()) } }
+                .let { points -> getRange(points[0], points[1]) }
 
-                line.forEach { seafloorCoordinates.getOrCreateCoordinate(it.xPos, it.yPos).ventCount++ }
-            }
+            line.forEach { seafloorCoordinates.getOrCreateCoordinate(it.xPos, it.yPos).ventCount++ }
+        }
 
         print("Points with 2 or more overlaps ${seafloorCoordinates.values.flatten().count { it.ventCount >= 2 }}")
     }
 
-    private fun getRange(firstPoint: Point, secondPoint: Point) : PointRange {
+    private fun getRange(firstPoint: Point, secondPoint: Point): PointRange {
         return if (firstPoint < secondPoint) firstPoint..secondPoint else secondPoint..firstPoint
     }
 }
@@ -43,7 +41,7 @@ class Day5 : AoC2021Problem() {
 data class Point(
     val xPos: Int,
     val yPos: Int
-): Comparable<Point> {
+) : Comparable<Point> {
     override fun compareTo(other: Point): Int {
         return when {
             xPos == other.xPos && yPos == other.yPos -> 0
@@ -73,7 +71,7 @@ data class Point(
 class PointRange(
     override val start: Point,
     override val endInclusive: Point
-) : ClosedRange<Point>, Iterable<Point>{
+) : ClosedRange<Point>, Iterable<Point> {
 
     override fun iterator(): Iterator<Point> {
         return PointIterator(start, endInclusive)
@@ -101,9 +99,12 @@ data class SeafloorCoordinate(
     var ventCount: Int = 0
 )
 
-fun MutableMap<Int/*xPos*/, MutableList<SeafloorCoordinate>>.getOrCreateCoordinate(xPos: Int, yPos: Int): SeafloorCoordinate {
+fun MutableMap<Int/*xPos*/, MutableList<SeafloorCoordinate>>.getOrCreateCoordinate(
+    xPos: Int,
+    yPos: Int
+): SeafloorCoordinate {
     if (!this.containsKey(xPos)) this[xPos] = mutableListOf()
 
-    return this[xPos]!!.find { it.xPos == xPos && it.yPos == yPos}
+    return this[xPos]!!.find { it.xPos == xPos && it.yPos == yPos }
         ?: SeafloorCoordinate(xPos, yPos).also { this[xPos]!!.add(it) }
 }

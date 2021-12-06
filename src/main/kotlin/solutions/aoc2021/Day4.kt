@@ -3,7 +3,7 @@ package solutions.aoc2021
 import AoC2021Problem
 
 class Day4 : AoC2021Problem() {
-    override fun solution1() {
+    override fun solution1(input: List<String>) {
         val numbersDrawn = mutableListOf<Int>()
         var boardNumber = 0
         val boardNumbers = Array(100) { index -> BoardNumber(index) }
@@ -62,7 +62,7 @@ class Day4 : AoC2021Problem() {
         }
     }
 
-    override fun solution2() {
+    override fun solution2(input: List<String>) {
         val numbersDrawn = mutableListOf<Int>()
         var boardNumber = 0
         val boardNumbers = Array(100) { index -> BoardNumber(index) }

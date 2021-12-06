@@ -3,7 +3,7 @@ package solutions.aoc2021
 import AoC2021Problem
 
 class Day3: AoC2021Problem() {
-    override fun solution1() {
+    override fun solution1(input: List<String>) {
         val counters = Array(12) { index -> PositionalBitCounter(index)}
         inputFile.readLines().map { it.trim() }.map { it.reversed() }.forEach {
             it.forEachIndexed { index, bit ->
@@ -20,7 +20,7 @@ class Day3: AoC2021Problem() {
         print("Gamma rate is $gammaRate, epsilon rate is $epsilonRate, product is ${gammaRate * epsilonRate}")
     }
 
-    override fun solution2() {
+    override fun solution2(input: List<String>) {
         val inputs = inputFile.readLines().map { it.trim() }
 
         val oxygenRating = Integer.parseInt(evaluateDiagnostic(inputs, 0, Frequency.MOST), 2)

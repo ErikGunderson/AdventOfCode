@@ -3,7 +3,7 @@ package solutions.aoc2020
 import AoC2020Problem
 
 class Day17 : AoC2020Problem() {
-    override fun solution1() {
+    override fun solution1(input: List<String>) {
         //NOTE: the top-left most point in the starting input is coords 0, 0, 0
         val pocketDimension = mutableListOf<ConwayCube>()
 
@@ -38,7 +38,7 @@ class Day17 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    override fun solution2() {
+    override fun solution2(input: List<String>) {
         //NOTE: the top-left most point in the starting input is coords 0, 0, 0
         val pocketDimension = mutableListOf<ConwayHypercube>()
 

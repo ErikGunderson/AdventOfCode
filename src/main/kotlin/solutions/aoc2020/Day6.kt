@@ -3,7 +3,7 @@ package solutions.aoc2020
 import AoC2020Problem
 
 class Day6 : AoC2020Problem() {
-    override fun solution1() {
+    override fun solution1(input: List<String>) {
         val currentGroupYesQuestions = mutableListOf<Char>()
         val yesCounts = mutableListOf<Int>()
 
@@ -24,7 +24,7 @@ class Day6 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    override fun solution2() {
+    override fun solution2(input: List<String>) {
         val currentGroupYesQuestions = mutableListOf<List<Char>>()
         val yesCounts = mutableListOf<Int>()
 

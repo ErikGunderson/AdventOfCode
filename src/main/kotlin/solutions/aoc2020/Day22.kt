@@ -4,7 +4,7 @@ import AoC2020Problem
 import java.util.*
 
 class Day22 : AoC2020Problem() {
-    override fun solution1() {
+    override fun solution1(input: List<String>) {
         val playerOneDeck = LinkedList<Int>()
         val playerTwoDeck = LinkedList<Int>()
         var currentDeck = 1
@@ -51,7 +51,7 @@ class Day22 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    override fun solution2() {
+    override fun solution2(input: List<String>) {
         val playerOneDeck = LinkedList<Int>()
         val playerTwoDeck = LinkedList<Int>()
         var currentDeck = 1

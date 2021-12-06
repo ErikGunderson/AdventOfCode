@@ -3,7 +3,7 @@ package solutions.aoc2020
 import AoC2020Problem
 
 class Day9: AoC2020Problem() {
-    override fun solution1() {
+    override fun solution1(input: List<String>) {
         inputFile.readLines().map { it.toLong() }.let { inputSet ->
             inputSet.forEachIndexed { index, input ->
                 if (index < 25) return@forEachIndexed
@@ -17,7 +17,7 @@ class Day9: AoC2020Problem() {
         }
     }
 
-    override fun solution2() {
+    override fun solution2(input: List<String>) {
         inputFile.readLines().map { it.toLong() }.let { inputSet ->
             var invalidInput = 0L
             var invalidInputIndex = 0

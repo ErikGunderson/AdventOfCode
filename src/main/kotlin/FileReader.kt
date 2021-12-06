@@ -18,14 +18,15 @@ abstract class AoCProblem: FileReader() {
     fun runProblem(solution: Solution){
         val perfTiming = System.currentTimeMillis()
 
-        if (solution == Solution.ONE) solution1() else solution2()
+        val input = inputFile.readLines().map { it.trim() }
+        if (solution == Solution.ONE) solution1(input) else solution2(input)
 
         print("\nCompleted Solution! :D")
         print("\nExecution time: ${System.currentTimeMillis() - perfTiming}")
     }
 
-    protected abstract fun solution1()
-    protected abstract fun solution2()
+    protected abstract fun solution1(input: List<String>)
+    protected abstract fun solution2(input: List<String>)
 }
 
 abstract class AoC2020Problem: AoCProblem() {
