@@ -22,7 +22,12 @@ abstract class AoCProblem: FileReader() {
         if (solution == Solution.ONE) solution1(input) else solution2(input)
 
         print("\nCompleted Solution! :D")
-        print("\nExecution time: ${System.currentTimeMillis() - perfTiming}")
+        print("\nExecution time: ${System.currentTimeMillis() - perfTiming}ms")
+    }
+
+    fun runAllSolutions() {
+        runProblem(Solution.ONE)
+        runProblem(Solution.TWO)
     }
 
     protected abstract fun solution1(input: List<String>)
