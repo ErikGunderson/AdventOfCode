@@ -9,7 +9,7 @@ class Day19 : AoC2020Problem() {
      * 8: 42
      * 11: 42 31
      */
-    fun solution1() {
+    override fun solution1() {
         var parsingStrategy = 1
         val rules = mutableMapOf<Int, String>()
         val inputs = mutableListOf<String>()
@@ -46,7 +46,7 @@ class Day19 : AoC2020Problem() {
      * 8: 42 | 42 8
      * 11: 42 31 | 42 11 31
      */
-    fun solution2() {
+    override fun solution2() {
         var parsingStrategy = 1
         val rules = mutableMapOf<Int, String>()
         val inputs = mutableListOf<String>()

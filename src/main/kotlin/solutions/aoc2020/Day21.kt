@@ -3,7 +3,7 @@ package solutions.aoc2020
 import AoC2020Problem
 
 class Day21 : AoC2020Problem() {
-    fun solution1() {
+    override fun solution1() {
         val foods = mutableListOf<Pair</* Ingredients */List<String>, /* Allergens */List<String>>>()
 
         inputFile.readLines().forEach {
@@ -42,7 +42,7 @@ class Day21 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    fun solution2() {
+    override fun solution2() {
         val foods = mutableListOf<Pair</* Ingredients */List<String>, /* Allergens */List<String>>>()
 
         inputFile.readLines().forEach {

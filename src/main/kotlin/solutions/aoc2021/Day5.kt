@@ -3,9 +3,8 @@ package solutions.aoc2021
 import AoC2021Problem
 
 class Day5 : AoC2021Problem() {
-    fun solution1() {
-        val startTimePerf = System.currentTimeMillis()
-        val seafloorCoordinates = mutableListOf<SeafloorCoordinate>()
+    override fun solution1() {
+        val seafloorCoordinates = mutableMapOf<Int/*xPos*/, MutableList<SeafloorCoordinate>>()
 
         inputFile.readLines().map { it.trim() }
             .forEach { inputLine ->
@@ -18,14 +17,11 @@ class Day5 : AoC2021Problem() {
                 line.forEach { seafloorCoordinates.getOrCreateCoordinate(it.xPos, it.yPos).ventCount++ }
             }
 
-        print("Points with 2 or more overlaps ${seafloorCoordinates.count { it.ventCount >= 2 }}")
-        print("\nDONE :D")
-        print("\nExecution time: ${System.currentTimeMillis() - startTimePerf}")
+        print("Points with 2 or more overlaps ${seafloorCoordinates.values.flatten().count { it.ventCount >= 2 }}")
     }
 
-    fun solution2() {
-        val startTimePerf = System.currentTimeMillis()
-        val seafloorCoordinates = mutableListOf<SeafloorCoordinate>()
+    override fun solution2() {
+        val seafloorCoordinates = mutableMapOf<Int/*xPos*/, MutableList<SeafloorCoordinate>>()
 
         inputFile.readLines().map { it.trim() }
             .forEach { inputLine ->
@@ -36,9 +32,7 @@ class Day5 : AoC2021Problem() {
                 line.forEach { seafloorCoordinates.getOrCreateCoordinate(it.xPos, it.yPos).ventCount++ }
             }
 
-        print("Points with 2 or more overlaps ${seafloorCoordinates.count { it.ventCount >= 2 }}")
-        print("\nDONE :D")
-        print("\nExecution time: ${System.currentTimeMillis() - startTimePerf}")
+        print("Points with 2 or more overlaps ${seafloorCoordinates.values.flatten().count { it.ventCount >= 2 }}")
     }
 
     private fun getRange(firstPoint: Point, secondPoint: Point) : PointRange {
@@ -60,7 +54,7 @@ data class Point(
 
     fun makesDiagonalWith(other: Point) = xPos != other.xPos && yPos != other.yPos
 
-    fun findSlope(other: Point) = (this.yPos - other.yPos) / (this.xPos - other.xPos)
+    private fun findSlope(other: Point) = (this.yPos - other.yPos) / (this.xPos - other.xPos)
 
     fun generatePointToward(other: Point): Point {
         return when {
@@ -107,7 +101,9 @@ data class SeafloorCoordinate(
     var ventCount: Int = 0
 )
 
-fun MutableList<SeafloorCoordinate>.getOrCreateCoordinate(xPos: Int, yPos: Int): SeafloorCoordinate {
-    return this.find { it.xPos == xPos && it.yPos == yPos}
-        ?: SeafloorCoordinate(xPos, yPos).apply { this@getOrCreateCoordinate.add(this) }
+fun MutableMap<Int/*xPos*/, MutableList<SeafloorCoordinate>>.getOrCreateCoordinate(xPos: Int, yPos: Int): SeafloorCoordinate {
+    if (!this.containsKey(xPos)) this[xPos] = mutableListOf()
+
+    return this[xPos]!!.find { it.xPos == xPos && it.yPos == yPos}
+        ?: SeafloorCoordinate(xPos, yPos).also { this[xPos]!!.add(it) }
 }

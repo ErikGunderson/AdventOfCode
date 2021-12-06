@@ -3,7 +3,7 @@ package solutions.aoc2021
 import AoC2021Problem
 
 class Day2: AoC2021Problem() {
-    fun solution1() {
+    override fun solution1() {
         val coords = SubCoordinate()
         inputFile.readLines().map { it.trim() }.forEach { input ->
             Regex("\\s+(?=\\d)").splitToSequence(input, 2).iterator().let {
@@ -16,10 +16,9 @@ class Day2: AoC2021Problem() {
         }
 
         print("Depth is ${coords.depth}, horizontal position is ${coords.horizontalPosition}, product is ${coords.depth * coords.horizontalPosition}")
-        print("\nDONE :D")
     }
 
-    fun solution2() {
+    override fun solution2() {
         val coords = SubCoordinate()
         inputFile.readLines().map { it.trim() }.forEach { input ->
             Regex("\\s+(?=\\d)").splitToSequence(input, 2).iterator().let {
@@ -36,7 +35,6 @@ class Day2: AoC2021Problem() {
         }
 
         print("Depth is ${coords.depth}, horizontal position is ${coords.horizontalPosition}, product is ${coords.depth * coords.horizontalPosition}")
-        print("\nDONE :D")
     }
 }
 

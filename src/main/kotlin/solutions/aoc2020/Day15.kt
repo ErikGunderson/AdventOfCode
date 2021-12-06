@@ -3,7 +3,7 @@ package solutions.aoc2020
 import AoC2020Problem
 
 class Day15 : AoC2020Problem() {
-    fun solution1() {
+    override fun solution1() {
         val startingNumbers = inputFile.readText().split(",").map { it.toInt() }
         val numberMap = mutableMapOf<Int, MutableList<Int>>()
 
@@ -30,7 +30,7 @@ class Day15 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    fun solution2() {
+    override fun solution2() {
         val startingNumbers = inputFile.readText().split(",").map { it.toInt() }
         val numberMap = mutableMapOf<Int, MutableList<Int>>()
 

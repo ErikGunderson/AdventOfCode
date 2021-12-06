@@ -3,7 +3,7 @@ package solutions.aoc2021
 import AoC2021Problem
 
 class Day4 : AoC2021Problem() {
-    fun solution1() {
+    override fun solution1() {
         val numbersDrawn = mutableListOf<Int>()
         var boardNumber = 0
         val boardNumbers = Array(100) { index -> BoardNumber(index) }
@@ -55,7 +55,6 @@ class Day4 : AoC2021Problem() {
                         val boardScore = board.flatten().distinctBy { it.value }.filterNot { it.marked }.map { it.value }.sum()
 
                         print("Board score is $boardScore, final number called is $currentNumber, product is ${boardScore * currentNumber}")
-                        print("\nDONE :D")
                         return
                     }
                 }
@@ -63,7 +62,7 @@ class Day4 : AoC2021Problem() {
         }
     }
 
-    fun solution2() {
+    override fun solution2() {
         val numbersDrawn = mutableListOf<Int>()
         var boardNumber = 0
         val boardNumbers = Array(100) { index -> BoardNumber(index) }
@@ -118,7 +117,6 @@ class Day4 : AoC2021Problem() {
                             val boardScore = board.flatten().distinctBy { it.value }.filterNot { it.marked }.map { it.value }.sum()
 
                             print("Board score is $boardScore, final number called is $currentNumber, product is ${boardScore * currentNumber}")
-                            print("\nDONE :D")
                             return
                         } else {
                             boardsToRemove.add(boardNumber)

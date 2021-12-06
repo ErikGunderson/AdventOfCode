@@ -3,7 +3,7 @@ package solutions.aoc2020
 import AoC2020Problem
 
 class Day2 : AoC2020Problem() {
-    fun solution1() {
+    override fun solution1() {
         var validPasswordCount = 0
 
         inputFile.readLines().map { it.trim() }.forEach { input ->
@@ -24,7 +24,7 @@ class Day2 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    fun solution2() {
+    override fun solution2() {
         var validPasswordCount = 0
 
         inputFile.readLines().map { it.trim() }.forEach { input ->

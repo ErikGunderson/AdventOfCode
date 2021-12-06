@@ -3,7 +3,7 @@ package solutions.aoc2020
 import AoC2020Problem
 
 class Day3 : AoC2020Problem() {
-    fun solution1() {
+    override fun solution1() {
         val treeChar = '#'
 
         var treeCount = 0
@@ -19,7 +19,7 @@ class Day3 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    fun solution2() {
+    override fun solution2() {
         val treeChar = '#'
 
         var slopeOneTreeCount = 0

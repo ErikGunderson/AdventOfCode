@@ -3,7 +3,7 @@ package solutions.aoc2020
 import AoC2020Problem
 
 class Day1: AoC2020Problem() {
-    fun solution1() {
+    override fun solution1() {
         val partitionedInputs = inputFile.readLines().map { it.trim() }.map { it.toInt() }.partition { it >= 1010 }
         val largeInputs = partitionedInputs.first
         val smallInputs = partitionedInputs.second.sorted()
@@ -19,7 +19,7 @@ class Day1: AoC2020Problem() {
         }
     }
 
-    fun solution2() {
+    override fun solution2() {
         val inputs = inputFile.readLines().map { it.trim() }.map { it.toInt() }.sorted()
 
         inputs.forEachIndexed { index, input ->

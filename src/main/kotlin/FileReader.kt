@@ -14,10 +14,29 @@ abstract class FileReader {
     }
 }
 
-abstract class AoC2020Problem: FileReader() {
+abstract class AoCProblem: FileReader() {
+    fun runProblem(solution: Solution){
+        val perfTiming = System.currentTimeMillis()
+
+        if (solution == Solution.ONE) solution1() else solution2()
+
+        print("\nCompleted Solution! :D")
+        print("\nExecution time: ${System.currentTimeMillis() - perfTiming}")
+    }
+
+    protected abstract fun solution1()
+    protected abstract fun solution2()
+}
+
+abstract class AoC2020Problem: AoCProblem() {
     override val year = "2020"
 }
 
-abstract class AoC2021Problem: FileReader() {
+abstract class AoC2021Problem: AoCProblem() {
     override val year = "2021"
+}
+
+enum class Solution {
+    ONE,
+    TWO
 }

@@ -3,7 +3,7 @@ package solutions.aoc2020
 import AoC2020Problem
 
 class Day16 : AoC2020Problem() {
-    fun solution1() {
+    override fun solution1() {
         var parsingStrategy = 1
 
         val fieldRangeMap = mutableMapOf<String, Pair<IntRange, IntRange>>()
@@ -53,7 +53,7 @@ class Day16 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    fun solution2() {
+    override fun solution2() {
         var parsingStrategy = 1
 
         val fieldRangeMap = mutableMapOf<String, Pair<IntRange, IntRange>>()

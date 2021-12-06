@@ -4,7 +4,7 @@ import AoC2020Problem
 import java.util.*
 
 class Day14 : AoC2020Problem() {
-    fun solution1() {
+    override fun solution1() {
         val registerMap = mutableMapOf<Int, Long>()
         var currentBitmask = listOf<BitmaskValue>()
 
@@ -33,7 +33,7 @@ class Day14 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    fun solution2() {
+    override fun solution2() {
         val registerMap = mutableMapOf<Long, Long>()
         var currentBitmaskList = listOf(listOf<BitmaskValue>())
 

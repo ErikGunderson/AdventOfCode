@@ -3,7 +3,7 @@ package solutions.aoc2020
 import AoC2020Problem
 
 class Day8 : AoC2020Problem() {
-    fun solution1() {
+    override fun solution1() {
         var accumulator = 0
         val instructions = mutableListOf<Instruction>()
         inputFile.readLines().forEachIndexed { index, input ->
@@ -41,7 +41,7 @@ class Day8 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    fun solution2() {
+    override fun solution2() {
         var accumulator = 0
 
         val instructions = mutableListOf<Instruction>()
