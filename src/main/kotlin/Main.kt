@@ -1,10 +1,8 @@
-import solutions.aoc2021.Day5
-import solutions.aoc2021.Day6
+import solutions.aoc2021.Day7
 
 fun main() {
     try {
-        Day6().runProblem(Solution.ONE)
-        Day6().runProblem(Solution.TWO)
+        Day7().runAllSolutions()
     } catch (exception: Exception) {
         print("\n$exception ${exception.stackTrace.map { "\nat -> $it" }.joinToString("")} \n")
     }
