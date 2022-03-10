@@ -6,8 +6,8 @@ class Day2 : AoC2020Problem() {
     override fun solution1(input: List<String>) {
         var validPasswordCount = 0
 
-        inputFile.readLines().map { it.trim() }.forEach { input ->
-            input.split(":", limit = 2).let {
+        input.forEach { singleInput ->
+            singleInput.split(":", limit = 2).let {
                 val policy = it[0].split(" ").let {
                     it[0] to it[1].first()
                 }
@@ -27,8 +27,8 @@ class Day2 : AoC2020Problem() {
     override fun solution2(input: List<String>) {
         var validPasswordCount = 0
 
-        inputFile.readLines().map { it.trim() }.forEach { input ->
-            input.split(":", limit = 2).let {
+        input.forEach { singleInput ->
+            singleInput.split(":", limit = 2).let {
                 val policy = it[0].split(" ").let {
                     it[0] to it[1].first()
                 }

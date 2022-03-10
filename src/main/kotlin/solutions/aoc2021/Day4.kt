@@ -10,35 +10,33 @@ class Day4 : AoC2021Problem() {
         val boards = mutableMapOf<Int, MutableList<List<BoardNumber>>>()
 
         //Assemble boards
-        inputFile.readLines().map { it.trim() }.let { inputLines ->
-            inputLines.forEachIndexed { index, inputLine ->
-                when {
-                    index == 0 -> numbersDrawn.addAll(inputLine.split(",").map { it.trim().toInt() })
-                    inputLine.isBlank() -> {
-                        if (boardNumber != 0) {
-                            val rows = boards[boardNumber]!!
-                            val columns = mutableListOf<List<BoardNumber>>()
-                            for (rowNumber in 0..rows.lastIndex) {
-                                columns.add(rows.map { it[rowNumber] })
-                            }
-                            boards[boardNumber]!!.addAll(columns)
+        input.forEachIndexed { index, inputLine ->
+            when {
+                index == 0 -> numbersDrawn.addAll(inputLine.split(",").map { it.trim().toInt() })
+                inputLine.isBlank() -> {
+                    if (boardNumber != 0) {
+                        val rows = boards[boardNumber]!!
+                        val columns = mutableListOf<List<BoardNumber>>()
+                        for (rowNumber in 0..rows.lastIndex) {
+                            columns.add(rows.map { it[rowNumber] })
                         }
-
-                        boardNumber++
-                        boards[boardNumber] = mutableListOf()
+                        boards[boardNumber]!!.addAll(columns)
                     }
-                    else -> {
-                        val numbersInRow = inputLine.split(Regex("\\s+(?=\\d)")).map { it.toInt() }
-                        boards[boardNumber]!!.add(numbersInRow.map { boardNumbers[it] })
 
-                        if (index == inputLines.lastIndex) {
-                            val rows = boards[boardNumber]!!
-                            val columns = mutableListOf<List<BoardNumber>>()
-                            for (rowNumber in 0..rows.lastIndex) {
-                                columns.add(rows.map { it[rowNumber] })
-                            }
-                            boards[boardNumber]!!.addAll(columns)
+                    boardNumber++
+                    boards[boardNumber] = mutableListOf()
+                }
+                else -> {
+                    val numbersInRow = inputLine.split(Regex("\\s+(?=\\d)")).map { it.toInt() }
+                    boards[boardNumber]!!.add(numbersInRow.map { boardNumbers[it] })
+
+                    if (index == input.lastIndex) {
+                        val rows = boards[boardNumber]!!
+                        val columns = mutableListOf<List<BoardNumber>>()
+                        for (rowNumber in 0..rows.lastIndex) {
+                            columns.add(rows.map { it[rowNumber] })
                         }
+                        boards[boardNumber]!!.addAll(columns)
                     }
                 }
             }
@@ -52,7 +50,8 @@ class Day4 : AoC2021Problem() {
                 board.forEach { rowOrColumn ->
                     if (rowOrColumn.all { it.marked }) {
                         //calculate score
-                        val boardScore = board.flatten().distinctBy { it.value }.filterNot { it.marked }.map { it.value }.sum()
+                        val boardScore =
+                            board.flatten().distinctBy { it.value }.filterNot { it.marked }.map { it.value }.sum()
 
                         print("Board score is $boardScore, final number called is $currentNumber, product is ${boardScore * currentNumber}")
                         return
@@ -69,35 +68,33 @@ class Day4 : AoC2021Problem() {
         val boards = mutableMapOf<Int, MutableList<List<BoardNumber>>>()
 
         //Assemble boards
-        inputFile.readLines().map { it.trim() }.let { inputLines ->
-            inputLines.forEachIndexed { index, inputLine ->
-                when {
-                    index == 0 -> numbersDrawn.addAll(inputLine.split(",").map { it.trim().toInt() })
-                    inputLine.isBlank() -> {
-                        if (boardNumber != 0) {
-                            val rows = boards[boardNumber]!!
-                            val columns = mutableListOf<List<BoardNumber>>()
-                            for (rowNumber in 0..rows.lastIndex) {
-                                columns.add(rows.map { it[rowNumber] })
-                            }
-                            boards[boardNumber]!!.addAll(columns)
+        input.forEachIndexed { index, inputLine ->
+            when {
+                index == 0 -> numbersDrawn.addAll(inputLine.split(",").map { it.trim().toInt() })
+                inputLine.isBlank() -> {
+                    if (boardNumber != 0) {
+                        val rows = boards[boardNumber]!!
+                        val columns = mutableListOf<List<BoardNumber>>()
+                        for (rowNumber in 0..rows.lastIndex) {
+                            columns.add(rows.map { it[rowNumber] })
                         }
-
-                        boardNumber++
-                        boards[boardNumber] = mutableListOf()
+                        boards[boardNumber]!!.addAll(columns)
                     }
-                    else -> {
-                        val numbersInRow = inputLine.split(Regex("\\s+(?=\\d)")).map { it.toInt() }
-                        boards[boardNumber]!!.add(numbersInRow.map { boardNumbers[it] })
 
-                        if (index == inputLines.lastIndex) {
-                            val rows = boards[boardNumber]!!
-                            val columns = mutableListOf<List<BoardNumber>>()
-                            for (rowNumber in 0..rows.lastIndex) {
-                                columns.add(rows.map { it[rowNumber] })
-                            }
-                            boards[boardNumber]!!.addAll(columns)
+                    boardNumber++
+                    boards[boardNumber] = mutableListOf()
+                }
+                else -> {
+                    val numbersInRow = inputLine.split(Regex("\\s+(?=\\d)")).map { it.toInt() }
+                    boards[boardNumber]!!.add(numbersInRow.map { boardNumbers[it] })
+
+                    if (index == input.lastIndex) {
+                        val rows = boards[boardNumber]!!
+                        val columns = mutableListOf<List<BoardNumber>>()
+                        for (rowNumber in 0..rows.lastIndex) {
+                            columns.add(rows.map { it[rowNumber] })
                         }
+                        boards[boardNumber]!!.addAll(columns)
                     }
                 }
             }
@@ -114,7 +111,8 @@ class Day4 : AoC2021Problem() {
                         //Only 1 board remained, and it won!
                         if (boards.size == 1) {
                             //calculate score
-                            val boardScore = board.flatten().distinctBy { it.value }.filterNot { it.marked }.map { it.value }.sum()
+                            val boardScore =
+                                board.flatten().distinctBy { it.value }.filterNot { it.marked }.map { it.value }.sum()
 
                             print("Board score is $boardScore, final number called is $currentNumber, product is ${boardScore * currentNumber}")
                             return

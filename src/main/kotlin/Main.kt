@@ -1,10 +1,9 @@
-import solutions.aoc2021.Day7
-import solutions.aoc2021.Day8
+import solutions.aoc2021.Day9
 
 fun main() {
     try {
-        Day8().runAllSolutions()
+        Day9().runAllSolutions()
     } catch (exception: Exception) {
-        print("\n$exception ${exception.stackTrace.map { "\nat -> $it" }.joinToString("")} \n")
+        print("\n$exception ${exception.stackTrace.joinToString("") { "\nat -> $it" }} \n")
     }
 }

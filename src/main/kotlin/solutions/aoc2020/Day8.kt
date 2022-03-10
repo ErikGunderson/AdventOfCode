@@ -6,8 +6,8 @@ class Day8 : AoC2020Problem() {
     override fun solution1(input: List<String>) {
         var accumulator = 0
         val instructions = mutableListOf<Instruction>()
-        inputFile.readLines().forEachIndexed { index, input ->
-            instructions.add(input.split(" ").let { Instruction(it[0], it[1].toInt(), index) })
+        input.forEachIndexed { index, singleInput ->
+            instructions.add(singleInput.split(" ").let { Instruction(it[0], it[1].toInt(), index) })
         }
 
         var shouldExecuteLoop = true
@@ -45,8 +45,8 @@ class Day8 : AoC2020Problem() {
         var accumulator = 0
 
         val instructions = mutableListOf<Instruction>()
-        inputFile.readLines().forEachIndexed { index, input ->
-            instructions.add(input.split(" ").let { Instruction(it[0], it[1].toInt(), index) })
+        input.forEachIndexed { index, singleInput ->
+            instructions.add(singleInput.split(" ").let { Instruction(it[0], it[1].toInt(), index) })
         }
 
         var shouldExecuteLoop = true

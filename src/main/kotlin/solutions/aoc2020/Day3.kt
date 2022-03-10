@@ -9,10 +9,10 @@ class Day3 : AoC2020Problem() {
         var treeCount = 0
         var arrayIndex = 0
 
-        inputFile.readLines().map { it.trim() }.forEach { input ->
-            if (input[arrayIndex] == treeChar) treeCount += 1
+        input.forEach { singleInput ->
+            if (singleInput[arrayIndex] == treeChar) treeCount += 1
 
-            arrayIndex = (arrayIndex + 3) % input.length
+            arrayIndex = (arrayIndex + 3) % singleInput.length
         }
 
         print("Encountered tree count is $treeCount")
@@ -28,16 +28,16 @@ class Day3 : AoC2020Problem() {
         var slopeFourTreeCount = 0
         var slopeFiveTreeCount = 0
 
-        inputFile.readLines().map { it.trim() }.forEachIndexed { index, input ->
+        input.forEachIndexed { index, singleInput ->
             if (index == 0) return@forEachIndexed
 
-            if (input[index % input.length] == treeChar) slopeOneTreeCount += 1
-            if (input[(index * 3) % input.length] == treeChar) slopeTwoTreeCount += 1
-            if (input[(index * 5) % input.length] == treeChar) slopeThreeTreeCount += 1
-            if (input[(index * 7) % input.length] == treeChar) slopeFourTreeCount += 1
+            if (singleInput[index % singleInput.length] == treeChar) slopeOneTreeCount += 1
+            if (singleInput[(index * 3) % singleInput.length] == treeChar) slopeTwoTreeCount += 1
+            if (singleInput[(index * 5) % singleInput.length] == treeChar) slopeThreeTreeCount += 1
+            if (singleInput[(index * 7) % singleInput.length] == treeChar) slopeFourTreeCount += 1
 
             if (index % 2 == 0) {
-                if (input[(index / 2) % input.length] == treeChar) slopeFiveTreeCount += 1
+                if (singleInput[(index / 2) % singleInput.length] == treeChar) slopeFiveTreeCount += 1
             }
         }
 

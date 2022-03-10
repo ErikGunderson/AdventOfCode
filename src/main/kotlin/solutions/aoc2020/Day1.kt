@@ -4,7 +4,7 @@ import AoC2020Problem
 
 class Day1: AoC2020Problem() {
     override fun solution1(input: List<String>) {
-        val partitionedInputs = inputFile.readLines().map { it.trim() }.map { it.toInt() }.partition { it >= 1010 }
+        val partitionedInputs = input.map { it.toInt() }.partition { it >= 1010 }
         val largeInputs = partitionedInputs.first
         val smallInputs = partitionedInputs.second.sorted()
 
@@ -20,22 +20,22 @@ class Day1: AoC2020Problem() {
     }
 
     override fun solution2(input: List<String>) {
-        val inputs = inputFile.readLines().map { it.trim() }.map { it.toInt() }.sorted()
+        val inputs = input.map { it.toInt() }.sorted()
 
-        inputs.forEachIndexed { index, input ->
+        inputs.forEachIndexed { index, singleInput ->
             var smallerIndex = index - 1
             var largerIndex = index + 1
 
             while (smallerIndex >= 0 && largerIndex <= inputs.lastIndex) {
-                val computedValue = input + inputs[smallerIndex] + inputs[largerIndex]
+                val computedValue = singleInput + inputs[smallerIndex] + inputs[largerIndex]
 
                 when {
                     computedValue == 2020 -> {
                         print(
-                            "first number is $input, " +
+                            "first number is $singleInput, " +
                                     "second number is ${inputs[smallerIndex]}, " +
                                     "third number is ${inputs[largerIndex]} " +
-                                    "multiplied they equal ${input * inputs[smallerIndex] * inputs[largerIndex]}")
+                                    "multiplied they equal ${singleInput * inputs[smallerIndex] * inputs[largerIndex]}")
                         print("\nDONE :D")
                         return
                     }

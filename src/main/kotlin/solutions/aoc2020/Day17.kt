@@ -8,7 +8,7 @@ class Day17 : AoC2020Problem() {
         val pocketDimension = mutableListOf<ConwayCube>()
 
         //set up starting locations
-        inputFile.readLines().forEachIndexed { y, line ->
+        input.forEachIndexed { y, line ->
             line.forEachIndexed { x, char ->
                 pocketDimension.add(ConwayCube(PocketDimensionCoordinate(x, y, 0), active = char == '#'))
             }
@@ -43,7 +43,7 @@ class Day17 : AoC2020Problem() {
         val pocketDimension = mutableListOf<ConwayHypercube>()
 
         //set up starting locations
-        inputFile.readLines().forEachIndexed { y, line ->
+        input.forEachIndexed { y, line ->
             line.forEachIndexed { x, char ->
                 pocketDimension.add(ConwayHypercube(PocketDimensionHyperCoordinate(x, y, 0, 0), active = char == '#'))
             }

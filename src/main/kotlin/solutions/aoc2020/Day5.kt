@@ -14,7 +14,7 @@ class Day5 : AoC2020Problem() {
 
         var highestId = 0.0
 
-        inputFile.readLines().forEach { inputLine ->
+        input.forEach { inputLine ->
             var front = 0.0
             var back = 127.0
             var left = 0.0
@@ -45,7 +45,7 @@ class Day5 : AoC2020Problem() {
 
         val idList = mutableListOf<Int>()
 
-        inputFile.readLines().forEach { inputLine ->
+        input.forEach { inputLine ->
             var front = 0.0
             var back = 127.0
             var left = 0.0

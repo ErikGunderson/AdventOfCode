@@ -5,7 +5,7 @@ import AoC2021Problem
 class Day3: AoC2021Problem() {
     override fun solution1(input: List<String>) {
         val counters = Array(12) { index -> PositionalBitCounter(index)}
-        inputFile.readLines().map { it.trim() }.map { it.reversed() }.forEach {
+        input.map { it.reversed() }.forEach {
             it.forEachIndexed { index, bit ->
                 val positionCounter = counters[index]
 
@@ -21,10 +21,8 @@ class Day3: AoC2021Problem() {
     }
 
     override fun solution2(input: List<String>) {
-        val inputs = inputFile.readLines().map { it.trim() }
-
-        val oxygenRating = Integer.parseInt(evaluateDiagnostic(inputs, 0, Frequency.MOST), 2)
-        val co2Rating = Integer.parseInt(evaluateDiagnostic(inputs, 0, Frequency.LEAST), 2)
+        val oxygenRating = Integer.parseInt(evaluateDiagnostic(input, 0, Frequency.MOST), 2)
+        val co2Rating = Integer.parseInt(evaluateDiagnostic(input, 0, Frequency.LEAST), 2)
 
         print("Oxygen Generator Rating is $oxygenRating, CO2 Scrubber Rating is $co2Rating, product is ${oxygenRating * co2Rating}")
     }

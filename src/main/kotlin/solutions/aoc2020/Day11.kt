@@ -7,7 +7,7 @@ import solutions.aoc2020.LayoutObject.Seat
 class Day11 : AoC2020Problem() {
     override fun solution1(input: List<String>) {
         val seatLayout = mutableListOf<List<LayoutObject>>()
-        inputFile.readLines().forEach {
+        input.forEach {
             val currentRowSeats = mutableListOf<LayoutObject>()
 
             it.forEach {
@@ -64,7 +64,7 @@ class Day11 : AoC2020Problem() {
 
     override fun solution2(input: List<String>) {
         val seatLayout = mutableListOf<List<LayoutObject>>()
-        inputFile.readLines().forEach {
+        input.forEach {
             val currentRowSeats = mutableListOf<LayoutObject>()
 
             it.forEach {

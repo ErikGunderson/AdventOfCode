@@ -8,7 +8,7 @@ class Day14 : AoC2020Problem() {
         val registerMap = mutableMapOf<Int, Long>()
         var currentBitmask = listOf<BitmaskValue>()
 
-        inputFile.readLines().forEach {
+        input.forEach {
             val splitInput = it.split(" = ")
 
             if (splitInput[0] == "mask") {
@@ -37,7 +37,7 @@ class Day14 : AoC2020Problem() {
         val registerMap = mutableMapOf<Long, Long>()
         var currentBitmaskList = listOf(listOf<BitmaskValue>())
 
-        inputFile.readLines().forEach {
+        input.forEach {
             val splitInput = it.split(" = ")
 
             if (splitInput[0] == "mask") {

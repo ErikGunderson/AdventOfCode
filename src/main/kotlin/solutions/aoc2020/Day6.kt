@@ -7,16 +7,14 @@ class Day6 : AoC2020Problem() {
         val currentGroupYesQuestions = mutableListOf<Char>()
         val yesCounts = mutableListOf<Int>()
 
-        inputFile.readLines().let { input ->
-            input.map { it.trim() }.forEachIndexed { index, inputLine ->
-                if (inputLine != "") {
-                    currentGroupYesQuestions.addAll(inputLine.toList())
-                }
+        input.forEachIndexed { index, inputLine ->
+            if (inputLine != "") {
+                currentGroupYesQuestions.addAll(inputLine.toList())
+            }
 
-                if (index == input.lastIndex || inputLine == "") {
-                    yesCounts.add(currentGroupYesQuestions.distinct().size)
-                    currentGroupYesQuestions.clear()
-                }
+            if (index == input.lastIndex || inputLine == "") {
+                yesCounts.add(currentGroupYesQuestions.distinct().size)
+                currentGroupYesQuestions.clear()
             }
         }
 
@@ -28,22 +26,20 @@ class Day6 : AoC2020Problem() {
         val currentGroupYesQuestions = mutableListOf<List<Char>>()
         val yesCounts = mutableListOf<Int>()
 
-        inputFile.readLines().let { input ->
-            input.map { it.trim() }.forEachIndexed { index, inputLine ->
-                if (inputLine != "") {
-                    currentGroupYesQuestions.add(inputLine.toList())
+        input.forEachIndexed { index, inputLine ->
+            if (inputLine != "") {
+                currentGroupYesQuestions.add(inputLine.toList())
+            }
+
+            if (index == input.lastIndex || inputLine == "") {
+                var intersectQuestions = currentGroupYesQuestions[0]
+
+                currentGroupYesQuestions.forEach {
+                    intersectQuestions = it.intersect(intersectQuestions).toList()
                 }
 
-                if (index == input.lastIndex || inputLine == "") {
-                    var intersectQuestions = currentGroupYesQuestions[0]
-
-                    currentGroupYesQuestions.forEach {
-                        intersectQuestions = it.intersect(intersectQuestions).toList()
-                    }
-
-                    yesCounts.add(intersectQuestions.size)
-                    currentGroupYesQuestions.clear()
-                }
+                yesCounts.add(intersectQuestions.size)
+                currentGroupYesQuestions.clear()
             }
         }
 

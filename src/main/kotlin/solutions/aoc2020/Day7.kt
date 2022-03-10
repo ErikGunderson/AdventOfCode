@@ -8,8 +8,8 @@ class Day7: AoC2020Problem() {
         val bagMap = mutableMapOf<String, BagsEntry>()
         var goldContainerBagCount = 0
 
-        inputFile.readLines().forEach { input ->
-            val keyValueSplit = input.split(" contain ")
+        input.forEach { singleInput ->
+            val keyValueSplit = singleInput.split(" contain ")
 
             val nestedBags = mutableListOf<String>()
             keyValueSplit[1].split(", ").forEach {
@@ -64,8 +64,8 @@ class Day7: AoC2020Problem() {
         val bagMap = mutableMapOf<String, List<String>>()
         var bagCount = 0
 
-        inputFile.readLines().forEach { input ->
-            val keyValueSplit = input.split(" contain ")
+        input.forEach { singleInput ->
+            val keyValueSplit = singleInput.split(" contain ")
 
             val nestedBags = mutableListOf<String>()
             keyValueSplit[1].split(", ").forEach {

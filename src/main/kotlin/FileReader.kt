@@ -15,7 +15,7 @@ abstract class FileReader {
 }
 
 abstract class AoCProblem: FileReader() {
-    fun runProblem(solution: Solution){
+    private fun runProblem(solution: Solution){
         val perfTiming = System.currentTimeMillis()
 
         val input = inputFile.readLines().map { it.trim() }

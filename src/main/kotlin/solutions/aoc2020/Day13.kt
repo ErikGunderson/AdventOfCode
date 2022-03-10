@@ -3,11 +3,8 @@ package solutions.aoc2020
 import AoC2020Problem
 
 class Day13 : AoC2020Problem() {
-
-    var currentLcmMultiplier = 1L
-
     override fun solution1(input: List<String>) {
-        inputFile.readLines().let {
+        input.let {
             val targetTime = it[0].toInt()
             val busIds = it[1].split(",").mapNotNull {
                 if (it == "x") null
@@ -35,7 +32,7 @@ class Day13 : AoC2020Problem() {
      * https://www.geeksforgeeks.org/chinese-remainder-theorem-set-1-introduction/
      */
     override fun solution2(input: List<String>) {
-        val buses = inputFile.readLines().let {
+        val buses = input.let {
             it[1].split(",").mapIndexed { index, busId ->
                 busId to index
             }

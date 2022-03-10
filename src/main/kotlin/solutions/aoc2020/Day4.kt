@@ -11,22 +11,20 @@ class Day4 : AoC2020Problem() {
         passportDataRaw.add(0, mutableListOf())
         var currentPassportIndex = 0
 
-        inputFile.readLines().let { inputLines ->
-            inputLines.map { it.trim() }.forEachIndexed { index, input ->
-                if (input != "") {
-                    val dataSections = input.split(" ")
-                    val dataKeys = dataSections.map { it.split(":")[0] }
+        input.forEachIndexed { index, singleInput ->
+            if (singleInput != "") {
+                val dataSections = singleInput.split(" ")
+                val dataKeys = dataSections.map { it.split(":")[0] }
 
-                    passportDataRaw[currentPassportIndex].addAll(dataKeys)
-                }
+                passportDataRaw[currentPassportIndex].addAll(dataKeys)
+            }
 
-                if (index == inputLines.lastIndex || input == "") {
-                    if (requiredDataKeys.subtract(passportDataRaw[currentPassportIndex]).isEmpty()) validPassportCount += 1
+            if (index == input.lastIndex || singleInput == "") {
+                if (requiredDataKeys.subtract(passportDataRaw[currentPassportIndex]).isEmpty()) validPassportCount += 1
 
-                    currentPassportIndex += 1
-                    passportDataRaw.add(currentPassportIndex, mutableListOf())
-                    return@forEachIndexed
-                }
+                currentPassportIndex += 1
+                passportDataRaw.add(currentPassportIndex, mutableListOf())
+                return@forEachIndexed
             }
         }
 
@@ -50,29 +48,28 @@ class Day4 : AoC2020Problem() {
         passportDataRaw.add(0, mutableListOf())
         var currentPassportIndex = 0
 
-        inputFile.readLines().let { inputLines ->
-            inputLines.map { it.trim() }.forEachIndexed { index, input ->
-                if (input != "") {
-                    val dataSections = input.split(" ")
-                    val dataPairs = dataSections.map { it.split(":").let { it[0] to it[1] } }
+        input.forEachIndexed { index, singleInput ->
+            if (singleInput != "") {
+                val dataSections = singleInput.split(" ")
+                val dataPairs = dataSections.map { it.split(":").let { it[0] to it[1] } }
 
-                    passportDataRaw[currentPassportIndex].addAll(dataPairs)
+                passportDataRaw[currentPassportIndex].addAll(dataPairs)
+            }
+
+            if (index == input.lastIndex || singleInput == "") {
+                val validPassport = requiredDataPairs.all { (key, regex) ->
+                    val indexOfRequiredData = passportDataRaw[currentPassportIndex].indexOfFirst { it.first == key }
+
+                    if (indexOfRequiredData < 0) false
+                    else regex.matchEntire(passportDataRaw[currentPassportIndex][indexOfRequiredData].second)
+                        ?.let { true } ?: false
                 }
 
-                if (index == inputLines.lastIndex || input == "") {
-                    val validPassport = requiredDataPairs.all { (key, regex) ->
-                        val indexOfRequiredData = passportDataRaw[currentPassportIndex].indexOfFirst { it.first == key }
+                if (validPassport) validPassportCount += 1
 
-                        if (indexOfRequiredData < 0) false
-                        else regex.matchEntire(passportDataRaw[currentPassportIndex][indexOfRequiredData].second)?.let { true } ?: false
-                    }
-
-                    if (validPassport) validPassportCount += 1
-
-                    currentPassportIndex += 1
-                    passportDataRaw.add(currentPassportIndex, mutableListOf())
-                    return@forEachIndexed
-                }
+                currentPassportIndex += 1
+                passportDataRaw.add(currentPassportIndex, mutableListOf())
+                return@forEachIndexed
             }
         }
 

@@ -14,7 +14,7 @@ class Day19 : AoC2020Problem() {
         val rules = mutableMapOf<Int, String>()
         val inputs = mutableListOf<String>()
 
-        inputFile.readLines().forEach {
+        input.forEach {
             if (it == "") run { parsingStrategy = 2; return@forEach }
 
             if (parsingStrategy == 1) {
@@ -51,7 +51,7 @@ class Day19 : AoC2020Problem() {
         val rules = mutableMapOf<Int, String>()
         val inputs = mutableListOf<String>()
 
-        inputFile.readLines().forEach {
+        input.forEach {
             if (it == "") run { parsingStrategy = 2; return@forEach }
 
             if (parsingStrategy == 1) {
@@ -61,15 +61,13 @@ class Day19 : AoC2020Problem() {
                             rule.split('|')[0]
                                 .trim()
                                 .split(' ')
-                                .map { "$it{countOne}" }
-                                .joinToString(" ")
+                                .joinToString(" ") { "$it{countOne}" }
                         }
                         "11" -> {
                             rule.split('|')[0]
                                 .trim()
                                 .split(' ')
-                                .map { "$it{countTwo}" }
-                                .joinToString(" ")
+                                .joinToString(" ") { "$it{countTwo}" }
                         }
                         else -> rule.trim('"')
                     }
@@ -91,12 +89,12 @@ class Day19 : AoC2020Problem() {
 
         for (countOne in 1..5) {
             for (countTwo in 1..5) {
-                inputs.forEachIndexed { index, input ->
+                inputs.forEachIndexed { index, singleInput ->
                     val regexString = "^${masterRule.filter { it != ' ' }}$"
                         .replace("countOne", countOne.toString())
                         .replace("countTwo", countTwo.toString())
 
-                    if (Regex(regexString).matches(input)) matchingInputIndices.add(index)
+                    if (Regex(regexString).matches(singleInput)) matchingInputIndices.add(index)
                 }
             }
         }

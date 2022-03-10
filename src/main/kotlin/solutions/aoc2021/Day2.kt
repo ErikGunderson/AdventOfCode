@@ -5,8 +5,8 @@ import AoC2021Problem
 class Day2: AoC2021Problem() {
     override fun solution1(input: List<String>) {
         val coords = SubCoordinate()
-        inputFile.readLines().map { it.trim() }.forEach { input ->
-            Regex("\\s+(?=\\d)").splitToSequence(input, 2).iterator().let {
+        input.forEach { singleInput ->
+            Regex("\\s+(?=\\d)").splitToSequence(singleInput, 2).iterator().let {
                 when (it.next().trim()) {
                     "forward" -> coords.horizontalPosition += it.next().toInt()
                     "down" -> coords.depth += it.next().toInt()
@@ -20,8 +20,8 @@ class Day2: AoC2021Problem() {
 
     override fun solution2(input: List<String>) {
         val coords = SubCoordinate()
-        inputFile.readLines().map { it.trim() }.forEach { input ->
-            Regex("\\s+(?=\\d)").splitToSequence(input, 2).iterator().let {
+        input.forEach { singleInput ->
+            Regex("\\s+(?=\\d)").splitToSequence(singleInput, 2).iterator().let {
                 when (it.next().trim()) {
                     "forward" -> {
                         val movementAmount = it.next().toInt()

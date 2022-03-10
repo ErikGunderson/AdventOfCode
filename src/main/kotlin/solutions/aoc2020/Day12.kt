@@ -14,7 +14,7 @@ class Day12 : AoC2020Problem() {
         )
         var currentFacing = East
 
-        inputFile.readLines().forEach {
+        input.forEach {
             val direction = it.first()
             var units = it.substring(1..it.lastIndex).toInt()
 
@@ -60,7 +60,7 @@ class Day12 : AoC2020Problem() {
             West to 0
         )
 
-        inputFile.readLines().forEach {
+        input.forEach {
             val direction = it.first()
             var units = it.substring(1..it.lastIndex).toInt()
 

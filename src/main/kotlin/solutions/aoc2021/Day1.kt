@@ -5,7 +5,7 @@ import AoC2021Problem
 class Day1: AoC2021Problem() {
     override fun solution1(input: List<String>) {
         var incCount = 0
-        inputFile.readLines().map { it.trim() }.map { it.toInt() }
+        input.map { it.toInt() }
             .windowed(2)
             .forEach { if (it[1] > it[0]) incCount++ }
 
@@ -14,7 +14,7 @@ class Day1: AoC2021Problem() {
 
     override fun solution2(input: List<String>) {
         var incCount = 0
-        inputFile.readLines().map { it.trim() }.map { it.toInt() }
+        input.map { it.toInt() }
             .windowed(3) { it[0] + it[1] + it[2] }
             .windowed(2)
             .forEach { if (it[1] > it[0]) incCount++ }

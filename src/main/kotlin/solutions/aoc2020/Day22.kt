@@ -9,7 +9,7 @@ class Day22 : AoC2020Problem() {
         val playerTwoDeck = LinkedList<Int>()
         var currentDeck = 1
 
-        inputFile.readLines().forEach {
+        input.forEach {
             when {
                 it.contains("Player") -> return@forEach
                 it.isBlank() -> {
@@ -56,7 +56,7 @@ class Day22 : AoC2020Problem() {
         val playerTwoDeck = LinkedList<Int>()
         var currentDeck = 1
 
-        inputFile.readLines().forEach {
+        input.forEach {
             when {
                 it.contains("Player") -> return@forEach
                 it.isBlank() -> {

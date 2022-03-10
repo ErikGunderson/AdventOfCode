@@ -7,7 +7,7 @@ class Day10 : AoC2020Problem() {
         var oneJoltDiffs = 0
         var threeJoltDiffs = 1
 
-        inputFile.readLines().map { it.toInt() }.sorted().let {
+        input.map { it.toInt() }.sorted().let {
             it.zipWithNext { current, next ->
                 when (next - current) {
                     1 -> oneJoltDiffs += 1
@@ -26,8 +26,7 @@ class Day10 : AoC2020Problem() {
     }
 
     override fun solution2(input: List<String>) {
-        inputFile.readLines()
-            .map { Adapter(it.toInt()) }
+        input.map { Adapter(it.toInt()) }
             .toMutableList()
             .apply { add(Adapter(0)) }
             .apply { add(Adapter(maxOf { it.jolts } + 3, possibleExitConnections = 1)) }

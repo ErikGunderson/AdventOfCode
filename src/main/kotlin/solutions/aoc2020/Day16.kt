@@ -12,7 +12,7 @@ class Day16 : AoC2020Problem() {
 
         val invalidFields = mutableListOf<Int>()
 
-        inputFile.readLines().forEach parsing@{
+        input.forEach parsing@{
             if (it.isBlank()) run { parsingStrategy += 1; return@parsing }
 
             when(parsingStrategy) {
@@ -63,7 +63,7 @@ class Day16 : AoC2020Problem() {
         val invalidTicketIndices = mutableListOf<Int>()
         val fieldTicketIndices = mutableListOf<MutableList<Field>>()
 
-        inputFile.readLines().forEach parsing@{
+        input.forEach parsing@{
             if (it.isBlank()) run { parsingStrategy += 1; return@parsing }
 
             when(parsingStrategy) {

@@ -6,7 +6,7 @@ class Day21 : AoC2020Problem() {
     override fun solution1(input: List<String>) {
         val foods = mutableListOf<Pair</* Ingredients */List<String>, /* Allergens */List<String>>>()
 
-        inputFile.readLines().forEach {
+        input.forEach {
             it.split(" (").let { (ingredients, allergens) ->
                 foods.add(ingredients.split(" ") to allergens.trim(')').removePrefix("contains ").split(", "))
             }
@@ -45,7 +45,7 @@ class Day21 : AoC2020Problem() {
     override fun solution2(input: List<String>) {
         val foods = mutableListOf<Pair</* Ingredients */List<String>, /* Allergens */List<String>>>()
 
-        inputFile.readLines().forEach {
+        input.forEach {
             it.split(" (").let { (ingredients, allergens) ->
                 foods.add(ingredients.split(" ") to allergens.trim(')').removePrefix("contains ").split(", "))
             }
