@@ -1,11 +1,11 @@
 package solutions.aoc2020
 
-import AoC2020Problem
+import solutions.utils.AoCProblem
 import solutions.aoc2020.CardinalDirection.*
 import kotlin.math.abs
 
-class Day12 : AoC2020Problem() {
-    override fun solution1(input: List<String>) {
+class Day12 : AoCProblem() {
+    fun solution1(input: List<String>) {
         val cardinalMovementMap = mutableMapOf(
             North to 0,
             South to 0,
@@ -46,7 +46,7 @@ class Day12 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val shipCardinalMovementMap = mutableMapOf(
             North to 0,
             South to 0,

@@ -1,9 +1,9 @@
 package solutions.aoc2021
 
-import AoC2021Problem
+import solutions.utils.AoCProblem
 
-class Day4 : AoC2021Problem() {
-    override fun solution1(input: List<String>) {
+class Day4 : AoCProblem() {
+    fun solution1(input: List<String>) {
         val numbersDrawn = mutableListOf<Int>()
         var boardNumber = 0
         val boardNumbers = Array(100) { index -> BoardNumber(index) }
@@ -61,7 +61,7 @@ class Day4 : AoC2021Problem() {
         }
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val numbersDrawn = mutableListOf<Int>()
         var boardNumber = 0
         val boardNumbers = Array(100) { index -> BoardNumber(index) }

@@ -1,10 +1,10 @@
 package solutions.aoc2020
 
-import AoC2020Problem
+import solutions.utils.AoCProblem
 import java.util.*
 
-class Day18 : AoC2020Problem() {
-    override fun solution1(input: List<String>) {
+class Day18 : AoCProblem() {
+    fun solution1(input: List<String>) {
         val equationOutputs = mutableListOf<Long>()
         val operators = listOf(
             '*' to 1,
@@ -39,7 +39,7 @@ class Day18 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val equationOutputs = mutableListOf<Long>()
         val operators = listOf(
             '*' to 1,

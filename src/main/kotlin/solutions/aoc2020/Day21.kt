@@ -1,9 +1,9 @@
 package solutions.aoc2020
 
-import AoC2020Problem
+import solutions.utils.AoCProblem
 
-class Day21 : AoC2020Problem() {
-    override fun solution1(input: List<String>) {
+class Day21 : AoCProblem() {
+    fun solution1(input: List<String>) {
         val foods = mutableListOf<Pair</* Ingredients */List<String>, /* Allergens */List<String>>>()
 
         input.forEach {
@@ -42,7 +42,7 @@ class Day21 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val foods = mutableListOf<Pair</* Ingredients */List<String>, /* Allergens */List<String>>>()
 
         input.forEach {

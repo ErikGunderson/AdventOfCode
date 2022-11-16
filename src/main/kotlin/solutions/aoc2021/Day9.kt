@@ -1,11 +1,10 @@
 package solutions.aoc2021
 
-import AoC2021Problem
-import kotlin.math.*
+import solutions.utils.AoCProblem
 
-class Day9 : AoC2021Problem() {
+class Day9 : AoCProblem() {
 
-    override fun solution1(input: List<String>) {
+    fun solution1(input: List<String>) {
         val riskLevelSum = input.map { it.map { digitChar -> digitChar.digitToInt() } }.let { inputRows ->
             inputRows.mapIndexed { rowIndex, rowHeightMap ->
                 val heightMapAbove = inputRows.getOrNull(rowIndex - 1)
@@ -27,7 +26,7 @@ class Day9 : AoC2021Problem() {
         print("Total risk level of height map: $riskLevelSum")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
 //        //TODO form columns, scan left to right
 //        val basinSizes = input.map { it.map { digitChar -> digitChar.digitToInt() } }.mapIndexed { index, row ->
 //

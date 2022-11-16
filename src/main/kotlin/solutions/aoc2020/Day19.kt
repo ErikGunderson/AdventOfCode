@@ -1,15 +1,15 @@
 package solutions.aoc2020
 
-import AoC2020Problem
+import solutions.utils.AoCProblem
 
-class Day19 : AoC2020Problem() {
+class Day19 : AoCProblem() {
     /**
      * NOTE: use these rules for part 1:
      *
      * 8: 42
      * 11: 42 31
      */
-    override fun solution1(input: List<String>) {
+    fun solution1(input: List<String>) {
         var parsingStrategy = 1
         val rules = mutableMapOf<Int, String>()
         val inputs = mutableListOf<String>()
@@ -46,7 +46,7 @@ class Day19 : AoC2020Problem() {
      * 8: 42 | 42 8
      * 11: 42 31 | 42 11 31
      */
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         var parsingStrategy = 1
         val rules = mutableMapOf<Int, String>()
         val inputs = mutableListOf<String>()

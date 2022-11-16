@@ -1,11 +1,15 @@
 package solutions.aoc2021
 
-import AoC2021Problem
+import solutions.utils.AoCProblem
 import kotlin.math.*
 
-class Day7 : AoC2021Problem() {
+fun main() {
+    Day7().runAllSolutions()
+}
 
-    override fun solution1(input: List<String>) {
+class Day7 : AoCProblem() {
+
+    fun solution1(input: List<String>) {
         input[0].split(",").map { it.toInt() }.sorted().let { inputs ->
             val median = inputs.median()
             val totalFuel = inputs.sumOf { abs(it - median) }
@@ -14,7 +18,7 @@ class Day7 : AoC2021Problem() {
         }
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         input[0].split(",").map { it.toInt() }.let { inputs ->
             val avgPair = inputs.avg().let { floor(it).toInt() to ceil(inputs.avg()).toInt() }
             val totalFuel = min(

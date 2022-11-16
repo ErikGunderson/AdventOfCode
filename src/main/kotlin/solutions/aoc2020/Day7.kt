@@ -1,10 +1,10 @@
 package solutions.aoc2020
 
-import AoC2020Problem
+import solutions.utils.AoCProblem
 import solutions.aoc2020.ContainsGoldBag.*
 
-class Day7: AoC2020Problem() {
-    override fun solution1(input: List<String>) {
+class Day7: AoCProblem() {
+    fun solution1(input: List<String>) {
         val bagMap = mutableMapOf<String, BagsEntry>()
         var goldContainerBagCount = 0
 
@@ -60,7 +60,7 @@ class Day7: AoC2020Problem() {
         }
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val bagMap = mutableMapOf<String, List<String>>()
         var bagCount = 0
 

@@ -1,9 +1,9 @@
 package solutions.aoc2021
 
-import AoC2021Problem
+import solutions.utils.AoCProblem
 
-class Day2: AoC2021Problem() {
-    override fun solution1(input: List<String>) {
+class Day2: AoCProblem() {
+    fun solution1(input: List<String>) {
         val coords = SubCoordinate()
         input.forEach { singleInput ->
             Regex("\\s+(?=\\d)").splitToSequence(singleInput, 2).iterator().let {
@@ -18,7 +18,7 @@ class Day2: AoC2021Problem() {
         print("Depth is ${coords.depth}, horizontal position is ${coords.horizontalPosition}, product is ${coords.depth * coords.horizontalPosition}")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val coords = SubCoordinate()
         input.forEach { singleInput ->
             Regex("\\s+(?=\\d)").splitToSequence(singleInput, 2).iterator().let {

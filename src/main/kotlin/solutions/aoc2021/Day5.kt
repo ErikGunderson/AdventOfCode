@@ -1,9 +1,9 @@
 package solutions.aoc2021
 
-import AoC2021Problem
+import solutions.utils.AoCProblem
 
-class Day5 : AoC2021Problem() {
-    override fun solution1(input: List<String>) {
+class Day5 : AoCProblem() {
+    fun solution1(input: List<String>) {
         val seafloorCoordinates = mutableMapOf<Int/*xPos*/, MutableList<SeafloorCoordinate>>()
 
         input.forEach { inputLine ->
@@ -19,7 +19,7 @@ class Day5 : AoC2021Problem() {
         print("Points with 2 or more overlaps ${seafloorCoordinates.values.flatten().count { it.ventCount >= 2 }}")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val seafloorCoordinates = mutableMapOf<Int/*xPos*/, MutableList<SeafloorCoordinate>>()
 
         input.forEach { inputLine ->

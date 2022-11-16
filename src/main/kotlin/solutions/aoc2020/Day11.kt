@@ -1,11 +1,11 @@
 package solutions.aoc2020
 
-import AoC2020Problem
+import solutions.utils.AoCProblem
 import solutions.aoc2020.LayoutObject.Floor
 import solutions.aoc2020.LayoutObject.Seat
 
-class Day11 : AoC2020Problem() {
-    override fun solution1(input: List<String>) {
+class Day11 : AoCProblem() {
+    fun solution1(input: List<String>) {
         val seatLayout = mutableListOf<List<LayoutObject>>()
         input.forEach {
             val currentRowSeats = mutableListOf<LayoutObject>()
@@ -62,7 +62,7 @@ class Day11 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val seatLayout = mutableListOf<List<LayoutObject>>()
         input.forEach {
             val currentRowSeats = mutableListOf<LayoutObject>()

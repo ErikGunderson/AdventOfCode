@@ -1,9 +1,9 @@
 package solutions.aoc2020
 
-import AoC2020Problem
+import solutions.utils.AoCProblem
 
-class Day4 : AoC2020Problem() {
-    override fun solution1(input: List<String>) {
+class Day4 : AoCProblem() {
+    fun solution1(input: List<String>) {
         val requiredDataKeys = listOf("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid")
         var validPassportCount = 0
 
@@ -32,7 +32,7 @@ class Day4 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val requiredDataPairs = listOf(
             "byr" to Regex("^(19[2-9][0-9])|(200[0-2])\$"),
             "iyr" to Regex("^(201[0-9])|(2020)\$"),

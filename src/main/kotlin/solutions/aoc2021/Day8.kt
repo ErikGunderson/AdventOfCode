@@ -1,11 +1,10 @@
 package solutions.aoc2021
 
-import AoC2021Problem
-import kotlin.math.*
+import solutions.utils.AoCProblem
 
-class Day8 : AoC2021Problem() {
+class Day8 : AoCProblem() {
 
-    override fun solution1(input: List<String>) {
+    fun solution1(input: List<String>) {
         val uniqueDigitCount = input.sumOf {
             it.split(" | ")[1].split(" ").count { it.length.isUniqueSevenSegmentDigit() }
         }
@@ -13,7 +12,7 @@ class Day8 : AoC2021Problem() {
         print("Total unique digit appearances: $uniqueDigitCount")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         //the digit 0 is 8 without one piece from 4
         //have digit 1, unique
         //the digit 2 is 8 without 2 pieces from 4

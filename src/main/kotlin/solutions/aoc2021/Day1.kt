@@ -1,9 +1,9 @@
 package solutions.aoc2021
 
-import AoC2021Problem
+import solutions.utils.AoCProblem
 
-class Day1: AoC2021Problem() {
-    override fun solution1(input: List<String>) {
+class Day1: AoCProblem() {
+    fun solution1(input: List<String>) {
         var incCount = 0
         input.map { it.toInt() }
             .windowed(2)
@@ -12,7 +12,7 @@ class Day1: AoC2021Problem() {
         print("Depth grew $incCount times")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         var incCount = 0
         input.map { it.toInt() }
             .windowed(3) { it[0] + it[1] + it[2] }

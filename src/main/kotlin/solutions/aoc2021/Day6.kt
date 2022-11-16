@@ -1,9 +1,9 @@
 package solutions.aoc2021
 
-import AoC2021Problem
+import solutions.utils.AoCProblem
 
-class Day6 : AoC2021Problem() {
-    override fun solution1(input: List<String>) {
+class Day6 : AoCProblem() {
+    fun solution1(input: List<String>) {
         val groupedFishByDay = Array(9) { index -> FishGroup(index, 0) }
 
         input.forEach {
@@ -26,7 +26,7 @@ class Day6 : AoC2021Problem() {
         print("Total fish after 80 days: ${groupedFishByDay.countFish()}")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val groupedFishByDay = Array(9) { index -> FishGroup(index, 0) }
 
         input.forEach {

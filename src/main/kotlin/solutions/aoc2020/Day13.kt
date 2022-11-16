@@ -1,9 +1,9 @@
 package solutions.aoc2020
 
-import AoC2020Problem
+import solutions.utils.AoCProblem
 
-class Day13 : AoC2020Problem() {
-    override fun solution1(input: List<String>) {
+class Day13 : AoCProblem() {
+    fun solution1(input: List<String>) {
         input.let {
             val targetTime = it[0].toInt()
             val busIds = it[1].split(",").mapNotNull {
@@ -31,7 +31,7 @@ class Day13 : AoC2020Problem() {
     /**
      * https://www.geeksforgeeks.org/chinese-remainder-theorem-set-1-introduction/
      */
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val buses = input.let {
             it[1].split(",").mapIndexed { index, busId ->
                 busId to index

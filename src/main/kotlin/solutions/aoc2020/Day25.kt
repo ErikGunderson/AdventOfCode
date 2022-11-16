@@ -1,13 +1,13 @@
 package solutions.aoc2020
 
-import AoC2020Problem
+import solutions.utils.AoCProblem
 
-class Day25 : AoC2020Problem() {
-    override fun solution1(input: List<String>) {
+class Day25 : AoCProblem() {
+    fun solution1(input: List<String>) {
 
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
 
     }
 }

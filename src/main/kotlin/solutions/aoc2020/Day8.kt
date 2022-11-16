@@ -1,9 +1,9 @@
 package solutions.aoc2020
 
-import AoC2020Problem
+import solutions.utils.AoCProblem
 
-class Day8 : AoC2020Problem() {
-    override fun solution1(input: List<String>) {
+class Day8 : AoCProblem() {
+    fun solution1(input: List<String>) {
         var accumulator = 0
         val instructions = mutableListOf<Instruction>()
         input.forEachIndexed { index, singleInput ->
@@ -41,7 +41,7 @@ class Day8 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         var accumulator = 0
 
         val instructions = mutableListOf<Instruction>()

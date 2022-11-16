@@ -1,9 +1,9 @@
 package solutions.aoc2020
 
-import AoC2020Problem
+import solutions.utils.AoCProblem
 
-class Day1: AoC2020Problem() {
-    override fun solution1(input: List<String>) {
+class Day1: AoCProblem() {
+    fun solution1(input: List<String>) {
         val partitionedInputs = input.map { it.toInt() }.partition { it >= 1010 }
         val largeInputs = partitionedInputs.first
         val smallInputs = partitionedInputs.second.sorted()
@@ -19,7 +19,7 @@ class Day1: AoC2020Problem() {
         }
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val inputs = input.map { it.toInt() }.sorted()
 
         inputs.forEachIndexed { index, singleInput ->

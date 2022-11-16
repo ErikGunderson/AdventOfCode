@@ -1,9 +1,9 @@
 package solutions.aoc2021
 
-import AoC2021Problem
+import solutions.utils.AoCProblem
 
-class Day3: AoC2021Problem() {
-    override fun solution1(input: List<String>) {
+class Day3: AoCProblem() {
+    fun solution1(input: List<String>) {
         val counters = Array(12) { index -> PositionalBitCounter(index)}
         input.map { it.reversed() }.forEach {
             it.forEachIndexed { index, bit ->
@@ -20,7 +20,7 @@ class Day3: AoC2021Problem() {
         print("Gamma rate is $gammaRate, epsilon rate is $epsilonRate, product is ${gammaRate * epsilonRate}")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val oxygenRating = Integer.parseInt(evaluateDiagnostic(input, 0, Frequency.MOST), 2)
         val co2Rating = Integer.parseInt(evaluateDiagnostic(input, 0, Frequency.LEAST), 2)
 

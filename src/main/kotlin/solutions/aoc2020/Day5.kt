@@ -1,11 +1,11 @@
 package solutions.aoc2020
 
-import AoC2020Problem
+import solutions.utils.AoCProblem
 import kotlin.math.ceil
 import kotlin.math.floor
 
-class Day5 : AoC2020Problem() {
-    override fun solution1(input: List<String>) {
+class Day5 : AoCProblem() {
+    fun solution1(input: List<String>) {
         //when taking the upper half (back) take the ceiling of the computed index
         //when taking the lower half (front) take the floor of the computer index
 
@@ -36,7 +36,7 @@ class Day5 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         //when taking the upper half (back) take the ceiling of the computed index
         //when taking the lower half (front) take the floor of the computer index
 

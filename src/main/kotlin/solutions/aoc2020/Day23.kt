@@ -1,9 +1,9 @@
 package solutions.aoc2020
 
-import AoC2020Problem
+import solutions.utils.AoCProblem
 
-class Day23 : AoC2020Problem() {
-    override fun solution1(input: List<String>) {
+class Day23 : AoCProblem() {
+    fun solution1(input: List<String>) {
         val cups = mutableListOf<Cup>()
         var currentCupIndex = 0
 
@@ -25,7 +25,7 @@ class Day23 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val cups = mutableListOf<Cup>()
         var currentCupIndex = 0
 

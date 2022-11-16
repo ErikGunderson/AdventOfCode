@@ -1,9 +1,9 @@
 package solutions.aoc2020
 
-import AoC2020Problem
+import solutions.utils.AoCProblem
 
-class Day15 : AoC2020Problem() {
-    override fun solution1(input: List<String>) {
+class Day15 : AoCProblem() {
+    fun solution1(input: List<String>) {
         val startingNumbers = inputFile.readText().split(",").map { it.toInt() }
         val numberMap = mutableMapOf<Int, MutableList<Int>>()
 
@@ -30,7 +30,7 @@ class Day15 : AoC2020Problem() {
         print("\nDONE :D")
     }
 
-    override fun solution2(input: List<String>) {
+    fun solution2(input: List<String>) {
         val startingNumbers = inputFile.readText().split(",").map { it.toInt() }
         val numberMap = mutableMapOf<Int, MutableList<Int>>()
 
