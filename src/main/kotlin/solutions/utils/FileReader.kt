@@ -25,7 +25,7 @@ abstract class AoCProblem: FileReader() {
     private val input get() = inputFile.readLines().map { it.trim() }
 
     fun runAllSolutions() {
-        this.javaClass.declaredMethods.filter { it.name.contains("solution") }.forEach {
+        this.javaClass.declaredMethods.filter { it.name.contains("solution") }.sortedBy { it.name }.forEach {
             it.run(this, input)
         }
     }
