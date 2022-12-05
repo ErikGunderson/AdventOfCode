@@ -1,6 +1,7 @@
 package solutions.utils
 
 import java.io.File
+import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
 import kotlin.system.exitProcess
 
@@ -23,6 +24,7 @@ abstract class FileReader {
 
 abstract class AoCProblem: FileReader() {
     private val input get() = inputFile.readLines().map { it.trim() }
+    protected val untrimmedInput get() = inputFile.readLines()
 
     fun runAllSolutions() {
         this.javaClass.declaredMethods.filter { it.name.contains("solution") }.sortedBy { it.name }.forEach {
@@ -45,7 +47,7 @@ private fun Method.run(parentClass: AoCProblem, input: List<String>) {
 
         print("\nCompleted Solution! :D")
         print("\nExecution time: ${System.currentTimeMillis() - perfTiming}ms\n\n")
-    } catch (exception: Exception) {
-        print("\n$exception ${exception.stackTrace.joinToString("") { "\nat -> $it" }} \n")
+    } catch (exception: InvocationTargetException) {
+        print("\n$exception ${exception.cause!!.stackTrace.joinToString("") { "\nat -> $it" }} \n")
     }
 }
