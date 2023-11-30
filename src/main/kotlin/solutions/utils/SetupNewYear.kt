@@ -25,11 +25,12 @@ class SetupNewYear {
 
             (1..25).forEach { day ->
                 File(solutionsDirectoryPath + File.separator + "Day$day.kt").let {
-                    it.createNewFile()
+                    if (!it.exists()) {
+                        it.createNewFile()
 
-                    PrintWriter(it).run {
-                        print(
-                            """
+                        PrintWriter(it).run {
+                            print(
+                                """
                                 package solutions.aoc$year
 
                                 import solutions.utils.AoCProblem
@@ -48,13 +49,16 @@ class SetupNewYear {
                                     }
                                 }
                             """.trimIndent()
-                        )
+                            )
 
-                        close()
+                            close()
+                        }
                     }
                 }
 
-                File(inputsDirectoryPath + File.separator + "Day$day.txt").createNewFile()
+                File(inputsDirectoryPath + File.separator + "Day$day.txt").let {
+                    if (!it.exists()) it.createNewFile()
+                }
             }
         }
     }
