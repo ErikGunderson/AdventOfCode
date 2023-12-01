@@ -48,7 +48,7 @@ class SetupNewYear {
 
                                     }
                                 }
-                            """.trimIndent()
+                                """.trimIndent()
                             )
 
                             close()
