@@ -4,7 +4,7 @@ import solutions.utils.AoCProblem
 import kotlin.math.max
 
 fun main() {
-    Day1().runSolution(2)
+    Day1().runAllSolutions()
 }
 
 class Day1: AoCProblem() {
