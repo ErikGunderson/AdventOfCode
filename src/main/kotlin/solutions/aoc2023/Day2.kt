@@ -63,18 +63,18 @@ class Day2 : AoCProblem() {
     }
 }
 
-enum class CubeColor {
+private enum class CubeColor {
     RED, BLUE, GREEN
 }
 
-fun String.toCubeColor(): CubeColor = when (this) {
+private fun String.toCubeColor(): CubeColor = when (this) {
     "red" -> CubeColor.RED
     "blue" -> CubeColor.BLUE
     "green" -> CubeColor.GREEN
     else -> throw RuntimeException("BAD CUBE COLOR >:[]")
 }
 
-data class CubeCount(val count: Int, val color: CubeColor) {
+private data class CubeCount(val count: Int, val color: CubeColor) {
     private val max
         get() = when (color) {
             CubeColor.RED -> 12
@@ -85,4 +85,4 @@ data class CubeCount(val count: Int, val color: CubeColor) {
     fun overMax() = count > max
 }
 
-fun List<CubeCount>.getGamePower(): Long = this.fold(1L) { acc, nextElement -> acc * nextElement.count }
+private fun List<CubeCount>.getGamePower(): Long = this.fold(1L) { acc, nextElement -> acc * nextElement.count }

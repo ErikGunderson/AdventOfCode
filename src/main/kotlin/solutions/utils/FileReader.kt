@@ -29,13 +29,14 @@ abstract class AoCProblem: FileReader() {
     protected open val testInput: List<String> = emptyList()
 
     fun runAllSolutions() {
-        this.javaClass.declaredMethods.filter { it.name.contains("solution") }.sortedBy { it.name }.forEach {
-            it.run(this, input)
+        this.javaClass.declaredMethods.filter { Regex("solution\\d$").containsMatchIn(it.name) }
+            .sortedBy { it.name }
+            .forEach { it.run(this, input)
         }
     }
 
     fun runSolution(solutionNumber: Int) {
-        this.javaClass.declaredMethods.filter { it.name.contains("solution$solutionNumber") }.forEach {
+        this.javaClass.declaredMethods.filter { Regex("solution$solutionNumber$").containsMatchIn(it.name) }.forEach {
             it.run(this, input)
         }
     }
