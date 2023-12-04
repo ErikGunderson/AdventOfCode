@@ -48,7 +48,7 @@ private fun identifySymbolsAndPartNumbers(
     onAdjacentPartNumbers: (List<Number>) -> Unit
 ) {
     val partNumbers = mutableMapOf<Int /* Y INDEX */, MutableList<Number>>()
-    val gearSymbols = mutableListOf<Symbol>()
+    val symbols = mutableListOf<Symbol>()
 
     input.forEachIndexed { yIndex, rowString ->
         Regex("(\\d+)|($symbolsToIdentifyRegex+?)").findAll(rowString).forEach { match ->
@@ -56,12 +56,12 @@ private fun identifySymbolsAndPartNumbers(
                 partNumbers.merge(yIndex, mutableListOf(Number(matchInt, match.range to yIndex))) { oldValue, newValue ->
                     oldValue.apply { addAll(newValue) }
                 }
-            } ?: run { gearSymbols += Symbol(match.value, match.range.first to yIndex) }
+            } ?: run { symbols += Symbol(match.value, match.range.first to yIndex) }
         }
     }
 
     //To be adjacent, the Y coordinate of a symbol must be +/- 1 of the Y of a number, and the X coordinates must either be touching or overlapping
-    gearSymbols.forEach { symbol ->
+    symbols.forEach { symbol ->
         mutableListOf<Number>()
             .apply {
                 partNumbers[symbol.coordinate.y - 1]?.let { addAll(it) }
