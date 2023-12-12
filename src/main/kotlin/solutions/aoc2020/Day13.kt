@@ -80,17 +80,17 @@ class Day13 : AoCProblem() {
     }
 }
 
-data class Bus(
+private data class Bus(
     val busId: Int,
     val requiredOffset: Int
 )
 
-data class GcdParams(
+private data class GcdParams(
     var x: Long,
     var y: Long
 )
 
-fun List<Bus>.busIdProduct() : Long {
+private fun List<Bus>.busIdProduct() : Long {
     var product = 1L
     this.forEach { product *= it.busId }
     return product
