@@ -1,0 +1,6 @@
+1 car
+5 pole
+82 update
+47 cat
+121 pizza
+6 phone

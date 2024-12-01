@@ -4,7 +4,7 @@ import java.io.File
 import java.io.PrintWriter
 
 fun main() {
-    SetupNewYear.setupYear("2023")
+    SetupNewYear.setupYear("2024")
 }
 
 class SetupNewYear {
