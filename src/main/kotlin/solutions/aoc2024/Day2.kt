@@ -38,6 +38,8 @@ class Day2: AoCProblem() {
                 ReactorLevelTrend.DECREASING
             } else ReactorLevelTrend.INCREASING
 
+//            var
+
             var badPairCount = 0
             reactorReport.windowed(2).map { (left, right) -> left - right }.forEach { pairDiff ->
                 if (pairDiff == 0
@@ -52,6 +54,24 @@ class Day2: AoCProblem() {
 
         println("Safe Report Count: $safeReportCount")
     }
+
+//    private fun isReactorReportSafe(report: List<Int>, reactorLevelTrend: ReactorLevelTrend, removedBadLevel: Boolean): Boolean {
+//        return report.windowed(2).map { (left, right) -> left - right }.forEachIndexed { windowStartIndex, pairDiff ->
+//            if (pairDiff == 0
+//                || (reactorLevelTrend == ReactorLevelTrend.DECREASING && pairDiff !in 1..3)
+//                || (reactorLevelTrend == ReactorLevelTrend.INCREASING && pairDiff !in -3..-1)) {
+//                return if (removedBadLevel) {
+//                    false
+//                } else {
+//                    isReactorReportSafe(
+//                        report.filterIndexed { index, _ -> index != windowStartIndex + 1 },
+//                        reactorLevelTrend,
+//                        removedBadLevel = true
+//                    )
+//                }
+//            }
+//        }
+//    }
 }
 
 enum class ReactorLevelTrend {
